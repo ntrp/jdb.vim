@@ -288,7 +288,7 @@ function! SendJDBCmd(cmd)
 endfunction
 
 if !exists('g:jdbPort')
-    let g:jdbPort = "localhost:6789"
+    let g:jdbPort = "localhost:8000"
 endif
 
 function! Run()
@@ -307,7 +307,7 @@ function! StepInto()
     call ch_sendraw(t:jdb_ch, "step\n")
 endfunction
 
-function! StepUp()
+function! StepOut()
     call ch_sendraw(t:jdb_ch, "step up\n")
 endfunction
 
@@ -368,4 +368,3 @@ function! s:ListBreakPoints()
   lfirst
   lopen
 endfunction
-nnoremap <silent> <leader>wb :call <SID>ListBreakPoints()<CR>
